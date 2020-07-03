@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.HotelOrderMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.HotelOrder">
+    <id column="hotel_id" jdbcType="BIGINT" property="hotelId" />
+    <result column="hotel_type" jdbcType="INTEGER" property="hotelType" />
+    <result column="start_date" jdbcType="DATE" property="startDate" />
+    <result column="end_date" jdbcType="DATE" property="endDate" />
+    <result column="room_count" jdbcType="INTEGER" property="roomCount" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone" jdbcType="INTEGER" property="phone" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    hotel_id, hotel_type, start_date, end_date, room_count, name, phone, start_time
+  </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from hotel_order
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from hotel_order
+    where hotel_id = #{hotelId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from hotel_order
+    where hotel_id = #{hotelId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qf.entity.HotelOrder">
+    insert into hotel_order (hotel_id, hotel_type, start_date, 
+      end_date, room_count, name, 
+      phone, start_time)
+    values (#{hotelId,jdbcType=BIGINT}, #{hotelType,jdbcType=INTEGER}, #{startDate,jdbcType=DATE}, 
+      #{endDate,jdbcType=DATE}, #{roomCount,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.HotelOrder">
+    insert into hotel_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hotelId != null">
+        hotel_id,
+      </if>
+      <if test="hotelType != null">
+        hotel_type,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="roomCount != null">
+        room_count,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hotelId != null">
+        #{hotelId,jdbcType=BIGINT},
+      </if>
+      <if test="hotelType != null">
+        #{hotelType,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=DATE},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=DATE},
+      </if>
+      <if test="roomCount != null">
+        #{roomCount,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.HotelOrder">
+    update hotel_order
+    <set>
+      <if test="hotelType != null">
+        hotel_type = #{hotelType,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=DATE},
+      </if>
+      <if test="endDate != null">
+        end_date = #{endDate,jdbcType=DATE},
+      </if>
+      <if test="roomCount != null">
+        room_count = #{roomCount,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where hotel_id = #{hotelId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.HotelOrder">
+    update hotel_order
+    set hotel_type = #{hotelType,jdbcType=INTEGER},
+      start_date = #{startDate,jdbcType=DATE},
+      end_date = #{endDate,jdbcType=DATE},
+      room_count = #{roomCount,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=TIMESTAMP}
+    where hotel_id = #{hotelId,jdbcType=BIGINT}
+  </update>
+</mapper>

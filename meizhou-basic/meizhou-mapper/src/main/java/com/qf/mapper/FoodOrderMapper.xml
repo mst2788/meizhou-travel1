@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.FoodOrderMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.FoodOrder">
+    <id column="food_order_id" jdbcType="BIGINT" property="foodOrderId" />
+    <result column="food_store" jdbcType="VARCHAR" property="foodStore" />
+    <result column="food_address" jdbcType="VARCHAR" property="foodAddress" />
+    <result column="food_detail" jdbcType="VARCHAR" property="foodDetail" />
+    <result column="home_address" jdbcType="VARCHAR" property="homeAddress" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    food_order_id, food_store, food_address, food_detail, home_address
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    where food_order
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from food_order
+    where food_order_id = #{foodOrderId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from food_order
+    where food_order_id = #{foodOrderId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qf.entity.FoodOrder">
+    insert into food_order (food_order_id, food_store, food_address, 
+      food_detail, home_address)
+    values (#{foodOrderId,jdbcType=BIGINT}, #{foodStore,jdbcType=VARCHAR}, #{foodAddress,jdbcType=VARCHAR}, 
+      #{foodDetail,jdbcType=VARCHAR}, #{homeAddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.FoodOrder">
+    insert into food_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="foodOrderId != null">
+        food_order_id,
+      </if>
+      <if test="foodStore != null">
+        food_store,
+      </if>
+      <if test="foodAddress != null">
+        food_address,
+      </if>
+      <if test="foodDetail != null">
+        food_detail,
+      </if>
+      <if test="homeAddress != null">
+        home_address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="foodOrderId != null">
+        #{foodOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="foodStore != null">
+        #{foodStore,jdbcType=VARCHAR},
+      </if>
+      <if test="foodAddress != null">
+        #{foodAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="foodDetail != null">
+        #{foodDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="homeAddress != null">
+        #{homeAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.FoodOrder">
+    update food_order
+    <set>
+      <if test="foodStore != null">
+        food_store = #{foodStore,jdbcType=VARCHAR},
+      </if>
+      <if test="foodAddress != null">
+        food_address = #{foodAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="foodDetail != null">
+        food_detail = #{foodDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="homeAddress != null">
+        home_address = #{homeAddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where food_order_id = #{foodOrderId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.FoodOrder">
+    update food_order
+    set food_store = #{foodStore,jdbcType=VARCHAR},
+      food_address = #{foodAddress,jdbcType=VARCHAR},
+      food_detail = #{foodDetail,jdbcType=VARCHAR},
+      home_address = #{homeAddress,jdbcType=VARCHAR}
+    where food_order_id = #{foodOrderId,jdbcType=BIGINT}
+  </update>
+</mapper>

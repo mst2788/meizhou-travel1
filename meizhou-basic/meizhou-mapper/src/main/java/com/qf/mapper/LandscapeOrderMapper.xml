@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.LandscapeOrderMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.LandscapeOrder">
+    <id column="landscape_order_id" jdbcType="BIGINT" property="landscapeOrderId" />
+    <result column="landscape_order_detail" jdbcType="VARCHAR" property="landscapeOrderDetail" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="children_mount" jdbcType="INTEGER" property="childrenMount" />
+    <result column="tools" jdbcType="INTEGER" property="tools" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    landscape_order_id, landscape_order_detail, name, children_mount, tools
+  </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from landscape_order
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from landscape_order
+    where landscape_order_id = #{landscapeOrderId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from landscape_order
+    where landscape_order_id = #{landscapeOrderId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qf.entity.LandscapeOrder">
+    insert into landscape_order (landscape_order_id, landscape_order_detail, 
+      name, children_mount, tools
+      )
+    values (#{landscapeOrderId,jdbcType=BIGINT}, #{landscapeOrderDetail,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{childrenMount,jdbcType=INTEGER}, #{tools,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.LandscapeOrder">
+    insert into landscape_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="landscapeOrderId != null">
+        landscape_order_id,
+      </if>
+      <if test="landscapeOrderDetail != null">
+        landscape_order_detail,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="childrenMount != null">
+        children_mount,
+      </if>
+      <if test="tools != null">
+        tools,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="landscapeOrderId != null">
+        #{landscapeOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="landscapeOrderDetail != null">
+        #{landscapeOrderDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="childrenMount != null">
+        #{childrenMount,jdbcType=INTEGER},
+      </if>
+      <if test="tools != null">
+        #{tools,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.LandscapeOrder">
+    update landscape_order
+    <set>
+      <if test="landscapeOrderDetail != null">
+        landscape_order_detail = #{landscapeOrderDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="childrenMount != null">
+        children_mount = #{childrenMount,jdbcType=INTEGER},
+      </if>
+      <if test="tools != null">
+        tools = #{tools,jdbcType=INTEGER},
+      </if>
+    </set>
+    where landscape_order_id = #{landscapeOrderId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.LandscapeOrder">
+    update landscape_order
+    set landscape_order_detail = #{landscapeOrderDetail,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      children_mount = #{childrenMount,jdbcType=INTEGER},
+      tools = #{tools,jdbcType=INTEGER}
+    where landscape_order_id = #{landscapeOrderId,jdbcType=BIGINT}
+  </update>
+</mapper>

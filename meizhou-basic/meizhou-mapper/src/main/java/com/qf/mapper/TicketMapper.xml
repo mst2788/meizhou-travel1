@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.TicketMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.Ticket">
+    <id column="ticket" jdbcType="BIGINT" property="ticket" />
+    <result column="startsite" jdbcType="VARCHAR" property="startsite" />
+    <result column="endsite" jdbcType="VARCHAR" property="endsite" />
+    <result column="seconed_seat" jdbcType="INTEGER" property="seconedSeat" />
+    <result column="first_seat" jdbcType="INTEGER" property="firstSeat" />
+    <result column="com_seat" jdbcType="INTEGER" property="comSeat" />
+    <result column="non_seat" jdbcType="INTEGER" property="nonSeat" />
+    <result column="train_id" jdbcType="VARCHAR" property="trainId" />
+    <result column="tprice" jdbcType="DECIMAL" property="tprice" />
+    <result column="start_time" jdbcType="TIME" property="startTime" />
+    <result column="end_time" jdbcType="TIME" property="endTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ticket, startsite, endsite, seconed_seat, first_seat, com_seat, non_seat, train_id, 
+    tprice, start_time, end_time
+  </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ticket
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ticket
+    where ticket = #{ticket,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from ticket
+    where ticket = #{ticket,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qf.entity.Ticket">
+    insert into ticket (ticket, startsite, endsite, 
+      seconed_seat, first_seat, com_seat, 
+      non_seat, train_id, tprice, 
+      start_time, end_time)
+    values (#{ticket,jdbcType=BIGINT}, #{startsite,jdbcType=VARCHAR}, #{endsite,jdbcType=VARCHAR}, 
+      #{seconedSeat,jdbcType=INTEGER}, #{firstSeat,jdbcType=INTEGER}, #{comSeat,jdbcType=INTEGER}, 
+      #{nonSeat,jdbcType=INTEGER}, #{trainId,jdbcType=VARCHAR}, #{tprice,jdbcType=DECIMAL}, 
+      #{startTime,jdbcType=TIME}, #{endTime,jdbcType=TIME})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.Ticket">
+    insert into ticket
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ticket != null">
+        ticket,
+      </if>
+      <if test="startsite != null">
+        startsite,
+      </if>
+      <if test="endsite != null">
+        endsite,
+      </if>
+      <if test="seconedSeat != null">
+        seconed_seat,
+      </if>
+      <if test="firstSeat != null">
+        first_seat,
+      </if>
+      <if test="comSeat != null">
+        com_seat,
+      </if>
+      <if test="nonSeat != null">
+        non_seat,
+      </if>
+      <if test="trainId != null">
+        train_id,
+      </if>
+      <if test="tprice != null">
+        tprice,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ticket != null">
+        #{ticket,jdbcType=BIGINT},
+      </if>
+      <if test="startsite != null">
+        #{startsite,jdbcType=VARCHAR},
+      </if>
+      <if test="endsite != null">
+        #{endsite,jdbcType=VARCHAR},
+      </if>
+      <if test="seconedSeat != null">
+        #{seconedSeat,jdbcType=INTEGER},
+      </if>
+      <if test="firstSeat != null">
+        #{firstSeat,jdbcType=INTEGER},
+      </if>
+      <if test="comSeat != null">
+        #{comSeat,jdbcType=INTEGER},
+      </if>
+      <if test="nonSeat != null">
+        #{nonSeat,jdbcType=INTEGER},
+      </if>
+      <if test="trainId != null">
+        #{trainId,jdbcType=VARCHAR},
+      </if>
+      <if test="tprice != null">
+        #{tprice,jdbcType=DECIMAL},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIME},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIME},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.Ticket">
+    update ticket
+    <set>
+      <if test="startsite != null">
+        startsite = #{startsite,jdbcType=VARCHAR},
+      </if>
+      <if test="endsite != null">
+        endsite = #{endsite,jdbcType=VARCHAR},
+      </if>
+      <if test="seconedSeat != null">
+        seconed_seat = #{seconedSeat,jdbcType=INTEGER},
+      </if>
+      <if test="firstSeat != null">
+        first_seat = #{firstSeat,jdbcType=INTEGER},
+      </if>
+      <if test="comSeat != null">
+        com_seat = #{comSeat,jdbcType=INTEGER},
+      </if>
+      <if test="nonSeat != null">
+        non_seat = #{nonSeat,jdbcType=INTEGER},
+      </if>
+      <if test="trainId != null">
+        train_id = #{trainId,jdbcType=VARCHAR},
+      </if>
+      <if test="tprice != null">
+        tprice = #{tprice,jdbcType=DECIMAL},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIME},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIME},
+      </if>
+    </set>
+    where ticket = #{ticket,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.Ticket">
+    update ticket
+    set startsite = #{startsite,jdbcType=VARCHAR},
+      endsite = #{endsite,jdbcType=VARCHAR},
+      seconed_seat = #{seconedSeat,jdbcType=INTEGER},
+      first_seat = #{firstSeat,jdbcType=INTEGER},
+      com_seat = #{comSeat,jdbcType=INTEGER},
+      non_seat = #{nonSeat,jdbcType=INTEGER},
+      train_id = #{trainId,jdbcType=VARCHAR},
+      tprice = #{tprice,jdbcType=DECIMAL},
+      start_time = #{startTime,jdbcType=TIME},
+      end_time = #{endTime,jdbcType=TIME}
+    where ticket = #{ticket,jdbcType=BIGINT}
+  </update>
+</mapper>

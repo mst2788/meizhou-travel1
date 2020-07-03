@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.LandscapeMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.Landscape">
+    <id column="lid" jdbcType="BIGINT" property="lid" />
+    <result column="lname" jdbcType="VARCHAR" property="lname" />
+    <result column="lpdesc" jdbcType="VARCHAR" property="lpdesc" />
+    <result column="lprice" jdbcType="DECIMAL" property="lprice" />
+    <result column="creattime" jdbcType="TIMESTAMP" property="creattime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    lid, lname, lpdesc, lprice, creattime
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from landscape
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from landscape
+    where lid = #{lid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from landscape
+    where lid = #{lid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qf.entity.Landscape">
+    insert into landscape (lid, lname, lpdesc, 
+      lprice, creattime)
+    values (#{lid,jdbcType=BIGINT}, #{lname,jdbcType=VARCHAR}, #{lpdesc,jdbcType=VARCHAR}, 
+      #{lprice,jdbcType=DECIMAL}, #{creattime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.Landscape">
+    insert into landscape
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lid != null">
+        lid,
+      </if>
+      <if test="lname != null">
+        lname,
+      </if>
+      <if test="lpdesc != null">
+        lpdesc,
+      </if>
+      <if test="lprice != null">
+        lprice,
+      </if>
+      <if test="creattime != null">
+        creattime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lid != null">
+        #{lid,jdbcType=BIGINT},
+      </if>
+      <if test="lname != null">
+        #{lname,jdbcType=VARCHAR},
+      </if>
+      <if test="lpdesc != null">
+        #{lpdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="lprice != null">
+        #{lprice,jdbcType=DECIMAL},
+      </if>
+      <if test="creattime != null">
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.Landscape">
+    update landscape
+    <set>
+      <if test="lname != null">
+        lname = #{lname,jdbcType=VARCHAR},
+      </if>
+      <if test="lpdesc != null">
+        lpdesc = #{lpdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="lprice != null">
+        lprice = #{lprice,jdbcType=DECIMAL},
+      </if>
+      <if test="creattime != null">
+        creattime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where lid = #{lid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.Landscape">
+    update landscape
+    set lname = #{lname,jdbcType=VARCHAR},
+      lpdesc = #{lpdesc,jdbcType=VARCHAR},
+      lprice = #{lprice,jdbcType=DECIMAL},
+      creattime = #{creattime,jdbcType=TIMESTAMP}
+    where lid = #{lid,jdbcType=BIGINT}
+  </update>
+</mapper>

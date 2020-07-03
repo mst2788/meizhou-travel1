@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.HotelMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.Hotel">
+    <id column="hotel_id" jdbcType="BIGINT" property="hotelId" />
+    <result column="hotel_price" jdbcType="DECIMAL" property="hotelPrice" />
+    <result column="hotel_name" jdbcType="VARCHAR" property="hotelName" />
+    <result column="hotel_address" jdbcType="VARCHAR" property="hotelAddress" />
+    <result column="hotel_phone" jdbcType="VARCHAR" property="hotelPhone" />
+    <result column="hotel_type" jdbcType="VARCHAR" property="hotelType" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    hotel_id, hotel_price, hotel_name, hotel_address, hotel_phone, hotel_type, creat_time
+  </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from hotel
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from hotel
+    where hotel_id = #{hotelId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from hotel
+    where hotel_id = #{hotelId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qf.entity.Hotel">
+    insert into hotel (hotel_id, hotel_price, hotel_name, 
+      hotel_address, hotel_phone, hotel_type, 
+      creat_time)
+    values (#{hotelId,jdbcType=BIGINT}, #{hotelPrice,jdbcType=DECIMAL}, #{hotelName,jdbcType=VARCHAR}, 
+      #{hotelAddress,jdbcType=VARCHAR}, #{hotelPhone,jdbcType=VARCHAR}, #{hotelType,jdbcType=VARCHAR}, 
+      #{creatTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.Hotel">
+    insert into hotel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hotelId != null">
+        hotel_id,
+      </if>
+      <if test="hotelPrice != null">
+        hotel_price,
+      </if>
+      <if test="hotelName != null">
+        hotel_name,
+      </if>
+      <if test="hotelAddress != null">
+        hotel_address,
+      </if>
+      <if test="hotelPhone != null">
+        hotel_phone,
+      </if>
+      <if test="hotelType != null">
+        hotel_type,
+      </if>
+      <if test="creatTime != null">
+        creat_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hotelId != null">
+        #{hotelId,jdbcType=BIGINT},
+      </if>
+      <if test="hotelPrice != null">
+        #{hotelPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="hotelName != null">
+        #{hotelName,jdbcType=VARCHAR},
+      </if>
+      <if test="hotelAddress != null">
+        #{hotelAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="hotelPhone != null">
+        #{hotelPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="hotelType != null">
+        #{hotelType,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null">
+        #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.Hotel">
+    update hotel
+    <set>
+      <if test="hotelPrice != null">
+        hotel_price = #{hotelPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="hotelName != null">
+        hotel_name = #{hotelName,jdbcType=VARCHAR},
+      </if>
+      <if test="hotelAddress != null">
+        hotel_address = #{hotelAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="hotelPhone != null">
+        hotel_phone = #{hotelPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="hotelType != null">
+        hotel_type = #{hotelType,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null">
+        creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where hotel_id = #{hotelId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.Hotel">
+    update hotel
+    set hotel_price = #{hotelPrice,jdbcType=DECIMAL},
+      hotel_name = #{hotelName,jdbcType=VARCHAR},
+      hotel_address = #{hotelAddress,jdbcType=VARCHAR},
+      hotel_phone = #{hotelPhone,jdbcType=VARCHAR},
+      hotel_type = #{hotelType,jdbcType=VARCHAR},
+      creat_time = #{creatTime,jdbcType=TIMESTAMP}
+    where hotel_id = #{hotelId,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.TuserMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.Tuser">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="phone" jdbcType="INTEGER" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="verifycode" jdbcType="INTEGER" property="verifycode" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, phone, email, verifycode, password
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tuser
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tuser
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tuser
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qf.entity.Tuser">
+    insert into tuser (id, phone, email, 
+      verifycode, password)
+    values (#{id,jdbcType=BIGINT}, #{phone,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, 
+      #{verifycode,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.Tuser">
+    insert into tuser
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="verifycode != null">
+        verifycode,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="verifycode != null">
+        #{verifycode,jdbcType=INTEGER},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.Tuser">
+    update tuser
+    <set>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="verifycode != null">
+        verifycode = #{verifycode,jdbcType=INTEGER},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.Tuser">
+    update tuser
+    set phone = #{phone,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
+      verifycode = #{verifycode,jdbcType=INTEGER},
+      password = #{password,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.TicketOrderMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.TicketOrder">
+    <id column="ticket_order_id" jdbcType="BIGINT" property="ticketOrderId" />
+    <result column="seat_type" jdbcType="INTEGER" property="seatType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.qf.entity.TicketOrder">
+    <result column="order_detial" jdbcType="LONGVARCHAR" property="orderDetial" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ticket_order_id, seat_type
+  </sql>
+  <sql id="Blob_Column_List">
+    order_detial
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ticket_order
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ticket_order
+    where ticket_order_id = #{ticketOrderId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from ticket_order
+    where ticket_order_id = #{ticketOrderId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qf.entity.TicketOrder">
+    insert into ticket_order (ticket_order_id, seat_type, order_detial
+      )
+    values (#{ticketOrderId,jdbcType=BIGINT}, #{seatType,jdbcType=INTEGER}, #{orderDetial,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.TicketOrder">
+    insert into ticket_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ticketOrderId != null">
+        ticket_order_id,
+      </if>
+      <if test="seatType != null">
+        seat_type,
+      </if>
+      <if test="orderDetial != null">
+        order_detial,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ticketOrderId != null">
+        #{ticketOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="seatType != null">
+        #{seatType,jdbcType=INTEGER},
+      </if>
+      <if test="orderDetial != null">
+        #{orderDetial,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.TicketOrder">
+    update ticket_order
+    <set>
+      <if test="seatType != null">
+        seat_type = #{seatType,jdbcType=INTEGER},
+      </if>
+      <if test="orderDetial != null">
+        order_detial = #{orderDetial,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ticket_order_id = #{ticketOrderId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.qf.entity.TicketOrder">
+    update ticket_order
+    set seat_type = #{seatType,jdbcType=INTEGER},
+      order_detial = #{orderDetial,jdbcType=LONGVARCHAR}
+    where ticket_order_id = #{ticketOrderId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.TicketOrder">
+    update ticket_order
+    set seat_type = #{seatType,jdbcType=INTEGER}
+    where ticket_order_id = #{ticketOrderId,jdbcType=BIGINT}
+  </update>
+</mapper>
