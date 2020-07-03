@@ -1,67 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="231867b3-badb-4c4e-8933-b9f308365288" name="Default" comment="基本骨架">
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-common/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-common/src/main/java/com/qf/common/CommonMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-common/src/main/java/com/qf/common/CommonService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-common/src/main/java/com/qf/common/CommonServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-entity/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-entity/src/main/java/com/qf/entity/FoodOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-entity/src/main/java/com/qf/entity/Hotel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-entity/src/main/java/com/qf/entity/HotelOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-entity/src/main/java/com/qf/entity/Landscape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-entity/src/main/java/com/qf/entity/LandscapeOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-entity/src/main/java/com/qf/entity/Ticket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-entity/src/main/java/com/qf/entity/TicketOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-entity/src/main/java/com/qf/entity/Tuser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/FoodOrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/FoodOrderMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/HotelMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/HotelMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/HotelOrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/HotelOrderMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/LandscapeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/LandscapeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/LandscapeOrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/LandscapeOrderMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/TicketMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/TicketMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/TicketOrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/TicketOrderMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/TuserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/meizhou-mapper/src/main/java/com/qf/mapper/TuserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-basic/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-service/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-service/src/main/java/com/qf/meizhou/service/MeizhouServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-service/src/test/java/com/qf/meizhou/service/MeizhouServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-travel.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-web/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-web/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-web/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-web/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-web/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-web/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-web/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-web/src/main/java/com/qf/meizhou/web/MeizhouWebApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-web/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/meizhou-web/src/test/java/com/qf/meizhou/web/MeizhouWebApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meizhou-travel/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="231867b3-badb-4c4e-8933-b9f308365288" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/../meizhou-travel/out/" />
     <ignored path="$PROJECT_DIR$/../meizhou-travel/target/" />
     <ignored path="$PROJECT_DIR$/../meizhou-travel/meizhou-api/target/" />
@@ -355,12 +295,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1593690572245</updated>
-      <workItem from="1593690574285" duration="9906000" />
+      <workItem from="1593690574285" duration="10407000" />
     </task>
+    <task id="LOCAL-00001" summary="基本骨架">
+      <created>1593737249872</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1593737249872</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9906000" />
+    <option name="totallyTimeSpent" value="10407000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -377,7 +325,7 @@
       <window_info id="UI Designer" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" visible="true" weight="0.697928" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.46564886" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info id="Image Layers" />
       <window_info anchor="bottom" id="Java Enterprise" />
@@ -386,7 +334,7 @@
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Spring" />
       <window_info anchor="bottom" id="Terminal" weight="0.3293348" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Web" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info id="Favorites" side_tool="true" />
@@ -692,6 +640,12 @@
           <caret line="18" column="91" selection-start-line="18" selection-start-column="91" selection-end-line="18" selection-end-column="91" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../meizhou-travel/meizhou-service/meizhou-service.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../meizhou-travel/meizhou-service/.mvn/wrapper/maven-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
